@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
+
+    <title>Kinderrechner</title>
+</head>
+
+<body>
+    <h1>👋 Hallo, wollen wir ein wenig rechnen Üben?</h1>
+    <div class="einleitung">
+        <p>Das Spiel ist ganz einfach, du musst eine Zahl zwischen 1 und 10 eingeben. Wir rechnen nur mit ➕ und ➖. <br>
+            Wenn du etwas falsch gemacht hast, kommt ein ❌ Wenn du etwas richtig gemacht hast, kommt ein ✅<br>
+            Es ist nicht schlimm wenn du etwas falsch gemacht hast, wir wollen ja üben. Denke einfach nochmal nach und
+            versuche es erneut 🤔<br>
+            Wenn du das schon alles könntest, bräuchtest du ja nicht mehr üben 😄<br>
+            Wollen wir Anfangen?🔢<br>
+            Zuerst überlegst du dir, welche zwei Zahlen du rechnen möchtest. Dann rechnest du die im Kopf.<br>
+            Wenn du dein Ergebnis überprüfen möchtest, schreib die Zahlen in den Rechner.
+        </p>
+    </div>
+    <form action="/rechnen" method="get">
+        <label>🔢 Wähle deine erste Zahl: (1–10):</label><br>
+        <input type="number" name="zahl1" min="1" max="10" required><br>
+
+        <label>🔢 Wähle deine zweite Zahl: (1–10):</label><br>
+        <input type="number" name="zahl2" min="1" max="10" required><br>
+
+        <label>Rechnen wir ➕ oder ➖? </label><br>
+        <select name="aufgabe" required>
+            <option value="+">➕ Plus</option>
+            <option value="-">➖ Minus</option>
+        </select><br>
+        <label> Was hast du errechnet? </label><br>
+        <input type="number" name="ergebniseingabe" required><br>
+
+        <button type="submit">✅ Prüfen</button>
+
+    </form>
+    <div id="antwortbox"></div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+
+</html>
